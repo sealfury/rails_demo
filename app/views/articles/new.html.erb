@@ -1,5 +1,5 @@
 <h1> Create Article </h1>
-<%= form_with scope: article, local: true do |form| %>
+<%= form_with scope: article, url:articles_path, local: true do |form| %>
     <p>
         <%= form.lable :title %><br>
         <%= form.text_field :title %>
