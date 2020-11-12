@@ -1,7 +1,8 @@
 <h1> Create Article </h1>
-<%= form_with scope: article, url:articles_path, local: true do |form| %>
+
+<%= form_with model: @article, url: article_url local: true do |form| %>
     <p>
-        <%= form.lable :title %><br>
+        <%= form.label :title %><br>
         <%= form.text_field :title %>
     </p>
 
@@ -11,6 +12,6 @@
     </p>
 
     <p>
-        <%= form.submit %>
+        <%= form.submit 'Create Article' %>
     </p>
 <% end %>
