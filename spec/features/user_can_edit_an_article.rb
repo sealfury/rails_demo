@@ -11,5 +11,12 @@ feature 'User can' do
       click_on 'Update Article'
       expect(page).to have_content 'Editing only increases crispiness'
     end
+
+    it 'not change an article to have no content' do
+      fill_in 'Content', with: ''
+      click_on 'Update Article'
+      expect(page).to have_content 'Something went wrong, try again'
+    end
   end
 end
+

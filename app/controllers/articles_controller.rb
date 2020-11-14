@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.create(article_params)
+    redirect_to root_path, notice: 'Article was successfully created'
   end
 
   def edit
@@ -21,7 +22,9 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    if @article.update(article_params)
+    if
+      article_params.present?
+      @article.update(article_params)
       redirect_to @article, notice: 'Article was successfully updated'
     else
       redirect_to edit_article_path, notice: 'Something went wrong, try again'
