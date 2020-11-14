@@ -1,9 +1,9 @@
 <h1> Create Article </h1> 
 
 <%= form_with model: @article, local: true do |form| %>
-  <%= form.label :title %><br>
-  <%= form.text_field :title %>
-  <%= form.label :content %><br>
-  <%= form.text_area :content %>
+  <%= form.label :title %><br/>
+  <%= form.text_field :title %><br>
+  <%= form.label :content %><br/>
+  <%= form.text_area :content %><br>
   <%= form.submit 'Create Article' %>
 <% end %>
