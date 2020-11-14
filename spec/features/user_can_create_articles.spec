@@ -27,8 +27,5 @@ feature 'User can create articles' do
       expect(page).to have_text 'Happy holidays'
     end
 
-    it 'User should see article content' do
-      expect(page).to have_text 'Buy your gifts now'
-    end
   end
 end

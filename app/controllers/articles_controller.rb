@@ -13,7 +13,8 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.create(article_params)
-    redirect_to root_path, notice: 'Article was successfully created'
+    flash[:notice] = 'Article was successfully created'
+    redirect_to root_path
   end
 
   def edit
