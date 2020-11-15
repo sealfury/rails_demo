@@ -32,10 +32,13 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.update(article_params)
     if
-      article_params[:content].present?
-      redirect_to @article, notice: 'Article was successfully updated'
+      article_params[:title].empty?
+      redirect_to edit_article_path, notice: 'Don\'t forget the title!'
+    elsif  
+      article_params[:content].empty?
+      redirect_to edit_article_path, notice: 'If you want to delete this article, click on \'Delete Article\''
     else
-      redirect_to edit_article_path, notice: 'Something went wrong, try again'
+      redirect_to @article, notice: 'Article was successfully updated'
     end
   end
 
