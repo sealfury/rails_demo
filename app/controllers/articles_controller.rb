@@ -17,7 +17,6 @@ class ArticlesController < ApplicationController
     article_params[:title].present?
     redirect_to root_path, notice: 'Article was successfully created'
     else  
-    
     redirect_to new_article_path, notice: 'Please supply a title'
     end
   end
@@ -28,9 +27,9 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+    @article.update(article_params)
     if
       article_params[:content].present?
-      @article.update(article_params)
       redirect_to @article, notice: 'Article was successfully updated'
     else
       redirect_to edit_article_path, notice: 'Something went wrong, try again'

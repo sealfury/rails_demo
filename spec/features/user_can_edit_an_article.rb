@@ -13,7 +13,9 @@ feature 'User can' do
     end
     
     it 'and see success message' do
-      expect(page).to have_content 'Article was successfully update'
+      fill_in 'Content', with: 'Editing only increases crispiness'
+      click_on 'Update Article'
+      expect(page).to have_content 'Article was successfully updated'
     end
 
     it 'not change an article to have no content' do

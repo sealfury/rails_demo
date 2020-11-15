@@ -42,8 +42,5 @@ feature 'User can' do
     it 'redirects to create article if there is no title' do
       expect(current_path).to eq new_article_path
     end
-
-
-    
   end
 end
