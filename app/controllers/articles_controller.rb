@@ -14,10 +14,13 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.create(article_params)
     if 
-    article_params[:title].present?
-    redirect_to root_path, notice: 'Article was successfully created'
-    else  
+    article_params[:title].empty?
     redirect_to new_article_path, notice: 'Please supply a title'
+    elsif  
+    article_params[:content].empty?
+    redirect_to root_path, notice: 'Have a look at some current articles if you need inspiration!'
+    else  
+    redirect_to root_path, notice: 'Article was successfully created'
     end
   end
 

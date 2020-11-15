@@ -43,4 +43,20 @@ feature 'User can' do
       expect(current_path).to eq new_article_path
     end
   end
+  
+  context 'not create an article without content' do
+    before do
+      fill_in 'Title', with: 'a contentless title'
+      fill_in 'Content', with: ''
+      click_on 'Create Article'
+    end
+
+    it 'gives a specific error message' do
+      expect(page).to have_content 'Have a look at some current articles if you need inspiration!'
+    end
+
+    it 'redirects to main page with message' do
+      expect(current_path).to eq root_path
+    end
+  end
 end
